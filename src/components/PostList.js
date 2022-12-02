@@ -8,6 +8,7 @@ class PostList extends React.Component {
     }
 
     render() {
+        console.log(this.props.posts)
         return (
             <div>
                 Post List
@@ -17,7 +18,7 @@ class PostList extends React.Component {
 };
 
 const mapPropsToState = state => {
-    return {}
+    return { posts: state.posts }
 };
 
 export default connect(mapPropsToState, { fetchPosts })(PostList);

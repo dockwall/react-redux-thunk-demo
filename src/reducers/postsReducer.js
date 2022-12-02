@@ -1,6 +1,10 @@
-const postsReducer = (postsList = [], newPostsList) => {
-    return (newPostsList.type === 'FETCH_POSTS') ?
-        newPostsList : postsList;
+const postsReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'FETCH_POSTS':
+            return action.payload;
+        default:
+            return state;
+    }
 };
 
 export default postsReducer;
