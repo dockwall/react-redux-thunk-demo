@@ -1,10 +1,10 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux";
-import { fetchUsers } from "../actions"
+import { fetchUser } from "../actions"
 
-const UserHeader = ({ users, fetchUsers, userID }) => {
+const UserHeader = ({ users, fetchUser, userID }) => {
     useEffect(() => {
-        fetchUsers(userID)
+        fetchUser(userID)
     }, [])
 
     console.log(users)
@@ -20,4 +20,4 @@ const mapPropsToState = state => {
     return { users: state.users }
 };
 
-export default connect(mapPropsToState, { fetchUsers })(UserHeader);
+export default connect(mapPropsToState, { fetchUser })(UserHeader);

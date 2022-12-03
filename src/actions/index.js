@@ -17,11 +17,11 @@ export const fetchPosts = () => async dispatch => {
     });
 };
 
-export const fetchUsers = (userID) => async dispatch => {
+export const fetchUser = (userID) => async dispatch => {
     const response = await jsonPlaceholder.get(`/users/${userID}`);
 
     dispatch({
-        type: 'FETCH_USERS',
+        type: 'FETCH_USER',
         payload: response.data
     });
 }
