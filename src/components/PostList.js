@@ -10,11 +10,11 @@ class PostList extends React.Component {
     }
 
     renderList() {
-        return this.props.posts.map(({ id, title, body }) => {
+        return this.props.posts.map(({ userId, id, title, body }) => {
             return (
                 <div className="item" key={id}>
                     <i className="large middle aligned icon user" />
-                    <UserHeader />
+                    <UserHeader userID={userId} />
                     <div className="content">
                         <div className="description">
                             <h2>{title}</h2>
