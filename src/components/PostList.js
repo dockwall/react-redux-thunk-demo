@@ -14,12 +14,12 @@ class PostList extends React.Component {
             return (
                 <div className="item" key={id}>
                     <i className="large middle aligned icon user" />
-                    <UserHeader userID={userId} />
                     <div className="content">
                         <div className="description">
                             <h2>{title}</h2>
                             <p>{body}</p>
                         </div>
+                        <UserHeader userID={userId} />
                     </div>
                 </div>
             )
