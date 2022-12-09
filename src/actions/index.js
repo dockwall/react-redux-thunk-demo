@@ -1,3 +1,4 @@
+import _ from "lodash";
 import jsonPlaceholder from "../api/jsonPlaceholder";
 
 // How to use redux-thunk as a middleware?
@@ -17,11 +18,22 @@ export const fetchPosts = () => async dispatch => {
     });
 };
 
-export const fetchUser = (userID) => async dispatch => {
-    const response = await jsonPlaceholder.get(`/users/${userID}`);
+// export const fetchUser = (userID) => async dispatch => {
+//     const response = await jsonPlaceholder.get(`/users/${userID}`);
 
-    dispatch({
-        type: 'FETCH_USER',
-        payload: response.data
+//     dispatch({
+//         type: 'FETCH_USER',
+//         payload: response.data
+//     });
+// };
+
+export const fetchUser = function (userID) {
+    return _.memoize(async function (dispatch) {
+        const response = await jsonPlaceholder.get(`/users/${userID}`);
+
+        dispatch({
+            type: 'FETCH_USER',
+            payload: response.data
+        });
     });
-}
+};
