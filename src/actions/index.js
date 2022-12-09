@@ -18,22 +18,18 @@ export const fetchPosts = () => async dispatch => {
     });
 };
 
-// export const fetchUser = (userID) => async dispatch => {
-//     const response = await jsonPlaceholder.get(`/users/${userID}`);
+const _getCurrentUser = _.memoize(async (currentUserID, dispatch) => {
+    const response = await jsonPlaceholder.get(`/users/${currentUserID}`);
 
-//     dispatch({
-//         type: 'FETCH_USER',
-//         payload: response.data
-//     });
-// };
-
-export const fetchUser = function (userID) {
-    return _.memoize(async function (dispatch) {
-        const response = await jsonPlaceholder.get(`/users/${userID}`);
-
-        dispatch({
-            type: 'FETCH_USER',
-            payload: response.data
-        });
+    dispatch({
+        type: 'FETCH_USER',
+        payload: response.data
     });
+});
+
+export const fetchUser = (userID) => dispatch => {
+    _getCurrentUser(userID, dispatch);
 };
+
+// with this solution we don't have ability to refetch user data
+// every user fetches only one time
