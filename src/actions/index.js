@@ -4,7 +4,7 @@ import jsonPlaceholder from "../api/jsonPlaceholder";
 // Thunk allows us to return objects AND functions from Action Creators.
 // In "function", we can STOP, MODIFY, DISPATCH or do something else with action.
 // If we want to dispatch action, we need it to do MANUALLY
-// Also we can use second argument - getStore. It get us all current data from Redux store
+// Also we can use second argument - getState(). It get us all current data from Redux store
 
 // fn => fn => ... - one function returns other function that returns ...
 
