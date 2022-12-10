@@ -18,6 +18,9 @@ const UserHeader = ({ user, fetchUser, userID }) => {
     )
 };
 
+// We can "prepare" props in mapPropsToState()
+// ownProps - props that passed to a component in React
+
 const mapPropsToState = (state, ownProps) => {
     return { user: state.users.find(user => user.id === ownProps.userID) }
 };
